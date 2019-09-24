@@ -5,7 +5,7 @@ import { IUser } from '../models/User';
 @Component({
   selector: 'app-card-item',
   templateUrl: './card-item.component.html',
-  styleUrls: ['./card-item.component.sass']
+  styleUrls: ['./card-item.component.scss']
 })
 export class CardItemComponent implements OnInit, ICard {
 
