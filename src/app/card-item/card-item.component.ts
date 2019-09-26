@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ICard } from '../models/Card';
 import { IUser } from '../models/User';
 
@@ -7,15 +7,17 @@ import { IUser } from '../models/User';
   templateUrl: './card-item.component.html',
   styleUrls: ['./card-item.component.scss']
 })
-export class CardItemComponent implements OnInit, ICard {
+export class CardItemComponent implements ICard {
 
-  id: string
-  name: string
-  description: string
-  dueDate?: Date | string
-  assignee?: IUser
+  @Input() public id: string
+  @Input() public name: string
+  @Input() public description: string
+  @Input() public dueDate?: Date | string
+  @Input() public assignee?: IUser
+  @Output() public removeCard  = new EventEmitter<ICard>();
 
-  ngOnInit() {
+  public onRemoveCard() {
+    this.removeCard.emit(this);
   }
 
 }

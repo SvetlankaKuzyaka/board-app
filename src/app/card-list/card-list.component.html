@@ -1,1 +1,13 @@
-<app-card-item></app-card-item>
+<div class="list">
+  <h4 class="listTitle">{{name}}</h4>
+  <app-card-item
+    *ngFor="let cardItem of cards"
+    [id]="cardItem.id"
+    [name]="cardItem.name"
+    [description]="cardItem.description"
+    [dueDate]="cardItem.dueDate"
+    [assignee]="cardItem.assignee"
+    (removeCard)="onRemoveCard($event)"
+  ></app-card-item>
+</div>
+

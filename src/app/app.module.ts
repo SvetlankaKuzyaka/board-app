@@ -4,7 +4,10 @@ import {
   MatToolbarModule,
   MatButtonModule,
   MatInputModule,
-  MatIconModule
+  MatIconModule,
+  MatDividerModule,
+  MatListModule,
+  MatCardModule
 } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 
@@ -36,7 +39,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatDividerModule,
+    MatListModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ICardList, ICard } from '../models/Card';
 
 @Component({
@@ -6,13 +6,15 @@ import { ICardList, ICard } from '../models/Card';
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.scss']
 })
-export class CardListComponent implements OnInit, ICardList {
+export class CardListComponent implements ICardList {
 
-  id: string
-  name: string
-  cards: ICard[ ]
+  @Input() public id: string
+  @Input() public name: string
+  @Input() public cards: ICard[]
+  @Output() public removeCard  = new EventEmitter<ICard>();
 
-  ngOnInit() {
+  public onRemoveCard(card : ICard) {
+    this.removeCard.emit(card);
   }
 
 }
