@@ -3,9 +3,8 @@
     <div class="board">
       <app-card-list
       *ngFor="let cardList of listCardList"
-      [id]="cardList.id"
-      [name]="cardList.name"
-      [cards]="cardList.cards"
+      [cardList]="cardList"
+      [searchCriterion]="searchCriterion"
       (removeCard)="onRemoveCard($event)"
       ></app-card-list>
     </div>

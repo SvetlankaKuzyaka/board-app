@@ -7,7 +7,7 @@ const fake_data = [
         id: "item_1",
         name: "Task 1",
         description: "description for task 1",
-        dueDate: "01.11.2019",
+        dueDate: "2019.11.01",
         assignee: {
           id: "user_1",
           firstName: "Ivan",
@@ -18,7 +18,7 @@ const fake_data = [
         id: "item_2",
         name: "Task 2",
         description: "description for task 2",
-        dueDate: "05.11.2019"
+        dueDate: "2019.11.05"
       },
       {
         id: "item_3",
@@ -35,7 +35,7 @@ const fake_data = [
         id: "item_4",
         name: "Task 4",
         description: "description for task 4",
-        dueDate: "01.10.2019",
+        dueDate: "2019.10.01",
         assignee: {
           id: "user_2",
           firstName: "Petr",
@@ -67,7 +67,7 @@ const fake_data = [
         id: "item_7",
         name: "Task 7",
         description: "description for task 7",
-        dueDate: "01.09.2019",
+        dueDate: "2019.09.01",
         assignee: {
           id: "user_2",
           firstName: "Petr",
@@ -78,7 +78,7 @@ const fake_data = [
         id: "item_8",
         name: "Task 8",
         description: "description for task 8",
-        dueDate: "10.09.2019",
+        dueDate: "2019.09.10",
         assignee: {
           id: "user_3",
           firstName: "Maxim",
@@ -89,7 +89,7 @@ const fake_data = [
         id: "item_9",
         name: "Task 9",
         description: "description for task 9",
-        dueDate: "17.09.2019"
+        dueDate: "2019.09.17"
       }
     ]
   },

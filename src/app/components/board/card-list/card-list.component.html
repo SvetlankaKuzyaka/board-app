@@ -1,0 +1,9 @@
+<div class="list">
+  <h4 class="listTitle">{{cardList.name}}</h4>
+  <app-card-item
+    *ngFor="let cardItem of cardList.cards | filter:searchCriterion"
+    [card]="cardItem"
+    (removeCard)="onRemoveCard($event)"
+  ></app-card-item>
+</div>
+

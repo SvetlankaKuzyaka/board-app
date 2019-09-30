@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ICardList, ICard } from '../models/Card';
+import { ICardList, ICard } from '../../models/Card';
 import fake_data from './fake_data';
 
 @Component({
@@ -8,8 +8,9 @@ import fake_data from './fake_data';
   styleUrls: ['./board.component.scss']
 })
 export class BoardComponent {
-  public readonly listCardList : ICardList[] = [...fake_data];
-  public searchCriterion : string;
+  public listCardList : ICardList[] = [...fake_data];
+  public searchCriterion : string = "";
+
   public onSearch(criterion: string) {
     this.searchCriterion = criterion;
   }
