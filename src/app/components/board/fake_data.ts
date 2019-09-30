@@ -25,7 +25,8 @@ const fake_data = [
         name: "Task 3",
         description: "description for task 3"
       }
-    ]
+    ],
+    isDoneSection: false
   },
   {
     id: "list_2",
@@ -57,7 +58,8 @@ const fake_data = [
         name: "Task 6",
         description: "description for task 6"
       }
-    ]
+    ],
+    isDoneSection: false
   },
   {
     id: "list_3",
@@ -91,7 +93,8 @@ const fake_data = [
         description: "description for task 9",
         dueDate: "2019.09.17"
       }
-    ]
+    ],
+    isDoneSection: true
   },
 ];
 

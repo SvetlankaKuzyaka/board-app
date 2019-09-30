@@ -9,6 +9,7 @@ import { ICard } from '../../../../models/Card';
 export class CardItemComponent {
 
   @Input() public card: ICard;
+  @Input() public isDoneSection: boolean
   @Output() public removeCard  = new EventEmitter<ICard>();
 
   public onRemoveCard() {
