@@ -8,6 +8,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 export class ToolbarComponent {
   public searchCriterion : string = "";
   @Output() public search  = new EventEmitter<string>();
+
   public onSearch() {
     this.search.emit(this.searchCriterion);
   }

@@ -7,7 +7,7 @@ const fake_data = [
         id: "item_1",
         name: "Task 1",
         description: "description for task 1",
-        dueDate: "2019.11.01",
+        dueDate: "2019.10.02",
         assignee: {
           id: "user_1",
           firstName: "Ivan",
@@ -18,7 +18,7 @@ const fake_data = [
         id: "item_2",
         name: "Task 2",
         description: "description for task 2",
-        dueDate: "2019.11.05"
+        dueDate: "2019.10.06"
       },
       {
         id: "item_3",
@@ -36,7 +36,7 @@ const fake_data = [
         id: "item_4",
         name: "Task 4",
         description: "description for task 4",
-        dueDate: "2019.10.01",
+        dueDate: "2019.10.03",
         assignee: {
           id: "user_2",
           firstName: "Petr",

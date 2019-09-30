@@ -8,12 +8,16 @@ import { ICard } from '../../../../models/Card';
 })
 export class CardItemComponent {
 
+  private expanded: boolean = false;
   @Input() public card: ICard;
   @Input() public isDoneSection: boolean
   @Output() public removeCard  = new EventEmitter<ICard>();
 
   public onRemoveCard() {
     this.removeCard.emit(this.card);
+  }
+  public onClickCard() {
+    this.expanded = !this.expanded;
   }
 
 }

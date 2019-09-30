@@ -1,16 +1,18 @@
-<div class="card">
-  <mat-card>
+<div class="card" (click)="onClickCard()">
+  <mat-card [appCardBackground]="card.dueDate" [isDoneSection]="isDoneSection">
     <mat-card-header>
       <mat-card-title [ngClass]="{struck: isDoneSection}">{{card.name}}</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
-      <p>{{card.description}}</p>
-      <p *ngIf="card.dueDate">{{card.dueDate | date}}</p>
-      <p *ngIf="card.assignee">{{card.assignee.firstName}} {{card.assignee.lastName}}</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button color="primary">EDIT</button>
-      <button mat-button color="primary" (click)="onRemoveCard()">REMOVE</button>
-    </mat-card-actions>
+    <ng-container *ngIf="expanded">
+      <mat-card-content>
+        <p>{{card.description}}</p>
+        <p *ngIf="card.dueDate">{{card.dueDate | date}}</p>
+        <p *ngIf="card.assignee">{{card.assignee.firstName}} {{card.assignee.lastName}}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary">EDIT</button>
+        <button mat-button color="primary" (click)="onRemoveCard()">REMOVE</button>
+      </mat-card-actions>
+    </ng-container>
   </mat-card>
 </div>

@@ -21,6 +21,7 @@ import { CardItemComponent } from './components/board/card-list/card-item/card-i
 import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterPipe } from './pipes/filter.pipe';
+import { CardBackgroundDirective } from './directives/card-background.directive';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { FilterPipe } from './pipes/filter.pipe';
     CardListComponent,
     CardItemComponent,
     FooterComponent,
-    FilterPipe
+    FilterPipe,
+    CardBackgroundDirective
   ],
   imports: [
     BrowserModule,
