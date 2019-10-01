@@ -11,7 +11,7 @@ export class DataService {
           id: "item_1",
           name: "Task 1",
           description: "description for task 1",
-          dueDate: "2019.10.02",
+          dueDate: "2019.10.03",
           assignee: {
             id: "user_1",
             firstName: "Ivan",
@@ -40,7 +40,7 @@ export class DataService {
           id: "item_4",
           name: "Task 4",
           description: "description for task 4",
-          dueDate: "2019.10.03",
+          dueDate: "2019.10.04",
           assignee: {
             id: "user_2",
             firstName: "Petr",
