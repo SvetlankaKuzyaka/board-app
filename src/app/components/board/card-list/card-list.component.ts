@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ICardList, ICard } from '../../../models/Card';
 
 @Component({
   selector: 'app-card-list',
@@ -8,11 +7,11 @@ import { ICardList, ICard } from '../../../models/Card';
 })
 export class CardListComponent {
 
-  @Input() public cardList: ICardList
+  @Input() public cardList: CardModel.ICardList
   @Input() public searchCriterion: string
-  @Output() public removeCard  = new EventEmitter<ICard>();
+  @Output() public removeCard  = new EventEmitter<CardModel.ICard>();
 
-  public onRemoveCard(card : ICard) {
+  public onRemoveCard(card : CardModel.ICard) {
     this.removeCard.emit(card);
   }
 

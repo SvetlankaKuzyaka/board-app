@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { ICard } from '../../../../models/Card';
 
 @Component({
   selector: 'app-card-item',
@@ -9,9 +8,9 @@ import { ICard } from '../../../../models/Card';
 export class CardItemComponent {
 
   private expanded: boolean = false;
-  @Input() public card: ICard;
+  @Input() public card: CardModel.ICard;
   @Input() public isDoneSection: boolean
-  @Output() public removeCard  = new EventEmitter<ICard>();
+  @Output() public removeCard  = new EventEmitter<CardModel.ICard>();
 
   public onRemoveCard() {
     this.removeCard.emit(this.card);
