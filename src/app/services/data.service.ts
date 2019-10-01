@@ -9,8 +9,8 @@ export class DataService {
       cards: [
         {
           id: "item_1",
-          name: "Task 1",
-          description: "description for task 1",
+          name: "Task1",
+          description: "description for task1",
           dueDate: "2019.10.03",
           assignee: {
             id: "user_1",
@@ -20,14 +20,14 @@ export class DataService {
         },
         {
           id: "item_2",
-          name: "Task 2",
-          description: "description for task 2",
+          name: "Task2",
+          description: "description for task2",
           dueDate: "2019.10.06"
         },
         {
           id: "item_3",
-          name: "Task 3",
-          description: "description for task 3"
+          name: "Task3",
+          description: "description for task3"
         }
       ],
       isDoneSection: false
@@ -38,8 +38,8 @@ export class DataService {
       cards: [
         {
           id: "item_4",
-          name: "Task 4",
-          description: "description for task 4",
+          name: "Task4",
+          description: "description for task4",
           dueDate: "2019.10.04",
           assignee: {
             id: "user_2",
@@ -49,8 +49,8 @@ export class DataService {
         },
         {
           id: "item_5",
-          name: "Task 5",
-          description: "description for task 5",
+          name: "Task5",
+          description: "description for task5",
           assignee: {
             id: "user_1",
             firstName: "Ivan",
@@ -59,8 +59,8 @@ export class DataService {
         },
         {
           id: "item_6",
-          name: "Task 6",
-          description: "description for task 6"
+          name: "Task6",
+          description: "description for task6"
         }
       ],
       isDoneSection: false
@@ -71,8 +71,8 @@ export class DataService {
       cards: [
         {
           id: "item_7",
-          name: "Task 7",
-          description: "description for task 7",
+          name: "Task7",
+          description: "description for task7",
           dueDate: "2019.09.01",
           assignee: {
             id: "user_2",
@@ -82,8 +82,8 @@ export class DataService {
         },
         {
           id: "item_8",
-          name: "Task 8",
-          description: "description for task 8",
+          name: "Task8",
+          description: "description for task8",
           dueDate: "2019.09.10",
           assignee: {
             id: "user_3",
@@ -93,8 +93,8 @@ export class DataService {
         },
         {
           id: "item_9",
-          name: "Task 9",
-          description: "description for task 9",
+          name: "Task9",
+          description: "description for task9",
           dueDate: "2019.09.17"
         }
       ],
