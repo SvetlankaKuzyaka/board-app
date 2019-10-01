@@ -4,7 +4,7 @@ import { DataService } from 'src/app/services/data.service';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss']
+  styleUrls: ['./board.component.scss'],
 })
 export class BoardComponent implements OnInit {
   public listCardList : CardModel.ICardList[];
