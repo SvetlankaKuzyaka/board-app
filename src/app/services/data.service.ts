@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DataService {
-  public readonly data = [
+  private readonly data = [
     {
       id: "list_1",
       name: "Backlog",
@@ -103,5 +101,14 @@ export class DataService {
       isDoneSection: true
     },
   ];
+
+  public getData(): CardModel.ICardList[] {
+    return this.data;
+  }
+
+  public removeCard(list : CardModel.ICardList, card : CardModel.ICard): void {
+      const index = list.cards.findIndex(cardItem => cardItem.id === card.id);
+      if (index !== -1) list.cards.splice(index, 1);
+  }
 
 }

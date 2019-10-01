@@ -21,6 +21,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterPipe } from './pipes/filter.pipe';
 import { CardBackgroundDirective } from './directives/card-background.directive';
+import { DataService } from './services/data.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { CardBackgroundDirective } from './directives/card-background.directive'
     MatListModule,
     MatCardModule
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

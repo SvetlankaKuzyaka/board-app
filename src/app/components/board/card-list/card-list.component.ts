@@ -9,10 +9,13 @@ export class CardListComponent {
 
   @Input() public cardList: CardModel.ICardList
   @Input() public searchCriterion: string
-  @Output() public removeCard  = new EventEmitter<CardModel.ICard>();
+  @Output() public removeCard  = new EventEmitter<{
+    list : CardModel.ICardList,
+    card : CardModel.ICard
+  }>();
 
   public onRemoveCard(card : CardModel.ICard) {
-    this.removeCard.emit(card);
+    this.removeCard.emit({list: this.cardList, card});
   }
 
 }
