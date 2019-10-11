@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatToolbarModule,
   MatButtonModule,
@@ -9,31 +12,13 @@ import {
   MatListModule,
   MatCardModule
 } from '@angular/material';
-import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { ToolbarComponent } from './components/board/toolbar/toolbar.component';
-import { BoardComponent } from './components/board/board.component';
-import { CardListComponent } from './components/board/card-list/card-list.component';
-import { CardItemComponent } from './components/board/card-list/card-item/card-item.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FilterPipe } from './pipes/filter.pipe';
-import { CardBackgroundDirective } from './directives/card-background.directive';
-import { DataService } from './services/data.service';
+import { CoreModule } from './core/core.module';
+import { BoardModule } from './board/board.module';
+
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    ToolbarComponent,
-    BoardComponent,
-    CardListComponent,
-    CardItemComponent,
-    FooterComponent,
-    FilterPipe,
-    CardBackgroundDirective
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -43,12 +28,12 @@ import { DataService } from './services/data.service';
     MatButtonModule,
     MatInputModule,
     MatIconModule,
-    FormsModule,
     MatDividerModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    CoreModule,
+    BoardModule
   ],
-  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

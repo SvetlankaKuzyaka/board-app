@@ -12,8 +12,13 @@ export class CardItemComponent {
   @Input() public isDoneSection: boolean
   @Output() public removeCard  = new EventEmitter<CardModel.ICard>();
 
-  public onRemoveCard() {
+  public onRemoveCard(event: MouseEvent) {
     this.removeCard.emit(this.card);
+    event.stopPropagation();
+  }
+  public onEditCard(event: MouseEvent) {
+    console.log('Edit card');
+    event.stopPropagation();
   }
   public onClickCard() {
     this.expanded = !this.expanded;

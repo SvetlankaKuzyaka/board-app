@@ -10,8 +10,8 @@
         <p *ngIf="card.assignee">{{card.assignee.firstName}} {{card.assignee.lastName}}</p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button color="primary">EDIT</button>
-        <button mat-button color="primary" (click)="onRemoveCard()">REMOVE</button>
+        <button mat-button color="primary" (click)="onEditCard($event)">EDIT</button>
+        <button mat-button color="primary" (click)="onRemoveCard($event)">REMOVE</button>
       </mat-card-actions>
     </ng-container>
   </mat-card>
