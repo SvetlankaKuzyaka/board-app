@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../../services/data.service';
+import { Component, OnInit, Input } from "@angular/core";
+import { DataService } from "../../services/data.service";
 
 @Component({
-  selector: 'app-board',
-  templateUrl: './board.component.html',
-  styleUrls: ['./board.component.scss'],
+  selector: "app-board",
+  templateUrl: "./board.component.html",
+  styleUrls: ["./board.component.scss"]
 })
 export class BoardComponent implements OnInit {
-  public listCardList : CardModel.ICardList[];
-  public searchCriterion : string = "";
+  @Input() public searchCriterion: string;
+  public listCardList: CardModel.ICardList[];
 
   constructor(private dataService: DataService) {}
 
@@ -16,12 +16,7 @@ export class BoardComponent implements OnInit {
     this.listCardList = this.dataService.getData();
   }
 
-  public onSearch(criterion: string) {
-    this.searchCriterion = criterion;
-  }
-
   public onRemoveCard({ list, card }) {
     this.dataService.removeCard(list, card);
   }
-
 }

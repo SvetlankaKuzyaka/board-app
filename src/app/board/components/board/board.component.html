@@ -1,12 +1,7 @@
-<div>
-    <app-toolbar (search)="onSearch($event)"></app-toolbar>
-    <div class="board">
-      <app-card-list
-      *ngFor="let cardList of listCardList"
-      [cardList]="cardList"
-      [searchCriterion]="searchCriterion"
-      (removeCard)="onRemoveCard($event)"
-      ></app-card-list>
-    </div>
-</div>
-
+<app-card-list
+  *ngFor="let cardList of listCardList"
+  [cardList]="cardList"
+  [searchCriterion]="searchCriterion"
+  (removeCard)="onRemoveCard($event)"
+>
+</app-card-list>

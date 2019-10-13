@@ -1,0 +1,24 @@
+<form class="form">
+  <mat-form-field>
+    <input
+      matInput
+      [(ngModel)]="cardName"
+      name="nameInput"
+      placeholder="Name"
+    />
+    <input
+      matInput
+      [(ngModel)]="cardDescription"
+      name="descriptionInput"
+      placeholder="Description"
+    />
+    <mat-label>Asignee</mat-label>
+    <mat-select [(ngModel)]="cardAsignee" name="asigneeInput">
+      <mat-option *ngFor="let asignee of asignees" [value]="asignee.value">
+        {{ asignee.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <button mat-raised-button type="submit" color="primary">Save</button>
+  <button mat-raised-button type="button" color="primary">Cancel</button>
+</form>

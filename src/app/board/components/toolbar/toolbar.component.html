@@ -1,0 +1,21 @@
+<mat-toolbar class="toolbar">
+  <form class="form" (submit)="onSearch()">
+    <mat-form-field class="input">
+      <input
+        matInput
+        [(ngModel)]="searchCriterion"
+        name="searchInput"
+        placeholder="Name"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        type="button"
+        (click)="searchCriterion = ''"
+      >
+        <mat-icon class="icon">cancel</mat-icon>
+      </button>
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="primary">Search</button>
+  </form>
+</mat-toolbar>
