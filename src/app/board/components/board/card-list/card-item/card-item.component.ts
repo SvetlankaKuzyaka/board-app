@@ -11,13 +11,14 @@ export class CardItemComponent {
   @Input() public card: CardModel.ICard;
   @Input() public isDoneSection: boolean
   @Output() public removeCard  = new EventEmitter<CardModel.ICard>();
+  @Output() public editCard  = new EventEmitter<CardModel.ICard>();
 
   public onRemoveCard(event: MouseEvent) {
     this.removeCard.emit(this.card);
     event.stopPropagation();
   }
   public onEditCard(event: MouseEvent) {
-    console.log('Edit card');
+    this.editCard.emit(this.card);
     event.stopPropagation();
   }
   public onClickCard() {

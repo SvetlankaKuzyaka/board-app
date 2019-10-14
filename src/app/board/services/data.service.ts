@@ -106,6 +106,16 @@ export class DataService {
     return this.data;
   }
 
+  public getDataById(id: String): CardModel.ICard {
+    for (const list of this.data) {
+      for (const card of list.cards) {
+        if (card.id === id) {
+          return card;
+        }
+      }
+    }
+  }
+
   public removeCard(list : CardModel.ICardList, card : CardModel.ICard): void {
       const index = list.cards.findIndex(cardItem => cardItem.id === card.id);
       if (index !== -1) list.cards.splice(index, 1);

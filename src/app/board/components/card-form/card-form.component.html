@@ -1,17 +1,11 @@
-<form class="form">
+<form class="form" (submit)="onSubmit()">
   <mat-form-field>
-    <input
-      matInput
-      [(ngModel)]="cardName"
-      name="nameInput"
-      placeholder="Name"
-    />
-    <input
-      matInput
-      [(ngModel)]="cardDescription"
-      name="descriptionInput"
-      placeholder="Description"
-    />
+    <input matInput [(ngModel)]="cardName" name="nameInput" placeholder="Name" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput [(ngModel)]="cardDescription" name="descriptionInput" placeholder="Description" required>
+  </mat-form-field>
+  <mat-form-field>
     <mat-label>Asignee</mat-label>
     <mat-select [(ngModel)]="cardAsignee" name="asigneeInput">
       <mat-option *ngFor="let asignee of asignees" [value]="asignee.value">
@@ -19,6 +13,13 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <button mat-raised-button type="submit" color="primary">Save</button>
-  <button mat-raised-button type="button" color="primary">Cancel</button>
+  <mat-form-field>
+    <input matInput [(ngModel)]="cardDate" [matDatepicker]="datePicker" name="dateInput" placeholder="Due date" >
+    <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+    <mat-datepicker #datePicker></mat-datepicker>
+  </mat-form-field>
+  <div class="buttons">
+    <button mat-raised-button type="submit" color="primary">SAVE</button>
+    <button mat-raised-button type="button" color="primary" (click)="onCancel()">CANCEL</button>
+  </div>
 </form>

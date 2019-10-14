@@ -5,8 +5,9 @@
     [card]="cardItem"
     [isDoneSection]="cardList.isDoneSection"
     (removeCard)="onRemoveCard($event)"
+    (editCard)="onEditCard($event)"
   ></app-card-item>
-  <button mat-icon-button color="primary" aria-label="Create card">
+  <button mat-icon-button color="primary" aria-label="Create card" (click)="onCreateCard()">
     <mat-icon>add</mat-icon>
   </button>
 </div>

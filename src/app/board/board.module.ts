@@ -10,7 +10,9 @@ import {
   MatDividerModule,
   MatListModule,
   MatCardModule,
-  MatSelectModule
+  MatSelectModule,
+  MatDatepickerModule,
+  MatNativeDateModule
 } from "@angular/material";
 import { ToolbarComponent } from "./components/toolbar/toolbar.component";
 import { BoardComponent } from "./components/board/board.component";
@@ -22,6 +24,7 @@ import { DataService } from "./services/data.service";
 import { BoardPageComponent } from "./pages/board-page/board-page.component";
 import { EditPageComponent } from "./pages/edit-page/edit-page.component";
 import { CardFormComponent } from "./components/card-form/card-form.component";
+import { CreatePageComponent } from './pages/create-page/create-page.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,8 @@ import { CardFormComponent } from "./components/card-form/card-form.component";
     CardBackgroundDirective,
     BoardPageComponent,
     EditPageComponent,
-    CardFormComponent
+    CardFormComponent,
+    CreatePageComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +50,9 @@ import { CardFormComponent } from "./components/card-form/card-form.component";
     MatDividerModule,
     MatListModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [DataService]
 })
