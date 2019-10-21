@@ -13,6 +13,8 @@ import {
   MatCardModule
 } from "@angular/material";
 import { CoreModule } from "./core/core.module";
+import { LoadingGuard } from './auth/services/loading.guard';
+import { LoginService } from './auth/services/login.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,6 +31,7 @@ import { CoreModule } from "./core/core.module";
     MatCardModule,
     CoreModule
   ],
+  providers: [LoadingGuard, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

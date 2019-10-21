@@ -53,7 +53,6 @@ import { CreatePageComponent } from './pages/create-page/create-page.component';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule
-  ],
-  providers: [DataService]
+  ]
 })
 export class BoardModule {}

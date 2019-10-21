@@ -8,6 +8,8 @@ import {
 } from "@angular/material";
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { LoginService } from "./services/login.service";
+import { LoadingGuard } from "./services/loading.guard";
 
 
 @NgModule({
