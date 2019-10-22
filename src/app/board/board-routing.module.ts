@@ -7,7 +7,7 @@ import { CreatePageComponent } from "./pages/create-page/create-page.component";
 const routes: Routes = [
   { path: "", component: BoardPageComponent },
   { path: "edit/:id", component: EditPageComponent },
-  { path: "create", component: CreatePageComponent }
+  { path: "create/:id", component: CreatePageComponent }
 ];
 
 @NgModule({

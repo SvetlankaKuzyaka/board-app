@@ -118,9 +118,21 @@ export class DataService {
     }
   }
 
+  public getListById(id: String): CardModel.ICardList {
+    for (const list of this.data) {
+      if (list.id === id) {
+        return list;
+      }
+    }
+  }
+
   public removeCard(list : CardModel.ICardList, card : CardModel.ICard): void {
       const index = list.cards.findIndex(cardItem => cardItem.id === card.id);
       if (index !== -1) list.cards.splice(index, 1);
+  }
+
+  public addCard(list : CardModel.ICardList, card : CardModel.ICard): void {
+    list.cards.push(card);
   }
 
 }

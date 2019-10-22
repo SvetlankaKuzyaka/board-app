@@ -23,11 +23,9 @@ export class BoardComponent implements OnInit {
 
   public onEditCard(card: CardModel.ICard) {
     this.router.navigate(['./edit', card.id], { relativeTo: this.route });
-    console.log(card);
   }
 
   public onCreateCard(list: CardModel.ICardList) {
-    this.router.navigate(['./create'], { relativeTo: this.route });
-    console.log(list);
+    this.router.navigate(['./create', list.id], { relativeTo: this.route });
   }
 }
