@@ -1,0 +1,5 @@
+<p>You are welcome! Please go on
+  <span *ngIf="loginCheck; then thenBlock else elseBlock"></span>
+  <ng-template #thenBlock><a routerLink="./board" routerLinkActive="active">board page!</a></ng-template>
+  <ng-template #elseBlock><a routerLink="./login" routerLinkActive="active">login page!</a></ng-template>
+</p>

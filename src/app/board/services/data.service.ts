@@ -4,7 +4,35 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DataService {
-  private readonly data = [
+  private readonly dataAsignee: UserModel.IUser[] = [
+    {
+      id: "user_1",
+      firstName: "Ivan",
+      lastName: "Ivanov"
+    },
+    {
+      id: "user_2",
+      firstName: "Petr",
+      lastName: "Petrov"
+    },
+    {
+      id: "user_3",
+      firstName: "Maxim",
+      lastName: "Sidorov"
+    },
+    {
+      id: "user_4",
+      firstName: "Sergey",
+      lastName: "Ptichkin"
+    },
+   {
+      id: "user_5",
+      firstName: "Isaak",
+      lastName: "Levitan"
+    }
+  ];
+
+  private readonly data: CardModel.ICardList[] = [
     {
       id: "list_1",
       name: "Backlog",
@@ -14,11 +42,7 @@ export class DataService {
           name: "Task 1",
           description: "description for task 1",
           dueDate: "2019.10.03",
-          assignee: {
-            id: "user_1",
-            firstName: "Ivan",
-            lastName: "Ivanov"
-          }
+          assignee: this.dataAsignee[0]
         },
         {
           id: "item_2",
@@ -43,21 +67,13 @@ export class DataService {
           name: "Task 4",
           description: "description for task 4",
           dueDate: "2019.10.04",
-          assignee: {
-            id: "user_2",
-            firstName: "Petr",
-            lastName: "Petrov"
-          }
+          assignee: this.dataAsignee[1]
         },
         {
           id: "item_5",
           name: "Task 5",
           description: "description for task 5",
-          assignee: {
-            id: "user_1",
-            firstName: "Ivan",
-            lastName: "Ivanov"
-          }
+          assignee: this.dataAsignee[0]
         },
         {
           id: "item_6",
@@ -76,22 +92,14 @@ export class DataService {
           name: "Task 7",
           description: "description for task 7",
           dueDate: "2019.09.01",
-          assignee: {
-            id: "user_2",
-            firstName: "Petr",
-            lastName: "Petrov"
-          }
+          assignee: this.dataAsignee[1]
         },
         {
           id: "item_8",
           name: "Task 8",
           description: "description for task 8",
           dueDate: "2019.09.10",
-          assignee: {
-            id: "user_3",
-            firstName: "Maxim",
-            lastName: "Sidorov"
-          }
+          assignee: this.dataAsignee[2]
         },
         {
           id: "item_9",
@@ -107,6 +115,14 @@ export class DataService {
   public getData(): CardModel.ICardList[] {
     return this.data;
   }
+
+  public getAsignee(): UserModel.IUser[] {
+    return this.dataAsignee;
+  }
+
+
+
+
 
   public getDataById(id: String): CardModel.ICard {
     for (const list of this.data) {

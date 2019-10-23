@@ -1,12 +1,14 @@
-import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { Router, ActivatedRoute } from "@angular/router";
+import { Component, Input, Output, EventEmitter, OnInit } from "@angular/core";
+import { DataService } from "../../services/data.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-card-form",
   templateUrl: "./card-form.component.html",
   styleUrls: ["./card-form.component.scss"]
 })
-export class CardFormComponent {
+export class CardFormComponent implements OnInit {
+  public selectAsignee: {value: UserModel.IUser; viewValue: string}[];
   public cardId: string = `item_${(Math.random()*100).toFixed(0)}`;
   public cardName: string;
   public cardDescription: string;
@@ -14,7 +16,15 @@ export class CardFormComponent {
   public cardDate: Date | string;
   @Output() public submitChanges  = new EventEmitter<CardModel.ICard>();
 
-  constructor(private router: Router, private route: ActivatedRoute) {};
+  constructor(private dataService: DataService, private router: Router) {};
+
+  public ngOnInit() {
+    this.selectAsignee = this.dataService.getAsignee().reduce((prev, item) =>
+      prev.concat({
+        value: {...item},
+        viewValue: `${item.firstName} ${item.lastName}`
+      }), []);
+  }
 
   @Input() set cardData(card: CardModel.ICard) {
     if (card) {
@@ -23,12 +33,6 @@ export class CardFormComponent {
       this.cardDescription = card.description;
       if (card.dueDate) this.cardDate = new Date(card.dueDate);
       this.cardAsignee = card.assignee;
-      if (this.cardAsignee) {
-        this.asignees.push({
-          value: this.cardAsignee,
-          viewValue: `${this.cardAsignee.firstName} ${this.cardAsignee.lastName}`
-        });
-      }
     }
   }
 
@@ -50,22 +54,4 @@ export class CardFormComponent {
     this.router.navigate(['./board']);
   }
 
-  asignees: {value: UserModel.IUser; viewValue: string}[] = [
-    {
-      value: {
-        id: "user_5",
-        firstName: "Sergey",
-        lastName: "Ptichkin"
-      },
-      viewValue: "Sergey Ptichkin"
-    },
-    {
-      value: {
-        id: "user_7",
-        firstName: "Maxim",
-        lastName: "Levitan"
-      },
-      viewValue: "Maxim Levitan"
-    }
-  ];
-}
+ }

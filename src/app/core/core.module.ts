@@ -3,13 +3,11 @@ import { CommonModule } from "@angular/common";
 import { MatToolbarModule, MatButtonModule } from "@angular/material";
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from "./components/footer/footer.component";
-import { HomePageComponent } from "./pages/home-page/home-page.component";
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    FooterComponent,
-    HomePageComponent
+    FooterComponent
   ],
   imports: [CommonModule, MatToolbarModule, MatButtonModule],
   exports: [HeaderComponent, FooterComponent]

@@ -15,7 +15,11 @@ export class LoginService {
 
   public setLogin(userName: string, token: boolean): void {
     this.loginState$.next({userName, token});
-    localStorage.setItem('loginState', JSON.stringify(this.loginState$.getValue()));
+    if (token) {
+      localStorage.setItem('loginState', JSON.stringify(this.loginState$.getValue()));
+    } else if (JSON.parse(localStorage.getItem('loginState'))) {
+      localStorage.removeItem('loginState');
+    }
   }
 
   public isLoggedIn() {
