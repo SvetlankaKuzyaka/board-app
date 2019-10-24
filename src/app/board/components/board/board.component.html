@@ -1,5 +1,5 @@
 <app-card-list
-  *ngFor="let cardList of listCardList"
+  *ngFor="let cardList of listCardList | async"
   [cardList]="cardList"
   [searchCriterion]="searchCriterion"
   (removeCard)="onRemoveCard($event)"

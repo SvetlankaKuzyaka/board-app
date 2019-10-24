@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +33,7 @@ export class DataService {
     }
   ];
 
-  private readonly data: CardModel.ICardList[] = [
+  private data: CardModel.ICardList[] = [
     {
       id: "list_1",
       name: "Backlog",
@@ -42,7 +43,7 @@ export class DataService {
           name: "Task 1",
           description: "description for task 1",
           dueDate: "2019.10.03",
-          assignee: this.dataAsignee[0]
+          assignee: {...this.dataAsignee[0]}
         },
         {
           id: "item_2",
@@ -67,13 +68,13 @@ export class DataService {
           name: "Task 4",
           description: "description for task 4",
           dueDate: "2019.10.04",
-          assignee: this.dataAsignee[1]
+          assignee: {...this.dataAsignee[1]}
         },
         {
           id: "item_5",
           name: "Task 5",
           description: "description for task 5",
-          assignee: this.dataAsignee[0]
+          assignee: {...this.dataAsignee[0]}
         },
         {
           id: "item_6",
@@ -92,14 +93,14 @@ export class DataService {
           name: "Task 7",
           description: "description for task 7",
           dueDate: "2019.09.01",
-          assignee: this.dataAsignee[1]
+          assignee: {...this.dataAsignee[1]}
         },
         {
           id: "item_8",
           name: "Task 8",
           description: "description for task 8",
           dueDate: "2019.09.10",
-          assignee: this.dataAsignee[2]
+          assignee: {...this.dataAsignee[2]}
         },
         {
           id: "item_9",
@@ -112,17 +113,15 @@ export class DataService {
     },
   ];
 
-  public getData(): CardModel.ICardList[] {
-    return this.data;
+  private dataLists$: BehaviorSubject<CardModel.ICardList[]> = new BehaviorSubject([...this.data]);
+
+  public getData(): Observable<CardModel.ICardList[]> {
+    return this.dataLists$;
   }
 
   public getAsignee(): UserModel.IUser[] {
     return this.dataAsignee;
   }
-
-
-
-
 
   public getDataById(id: String): CardModel.ICard {
     for (const list of this.data) {
@@ -143,12 +142,29 @@ export class DataService {
   }
 
   public removeCard(list : CardModel.ICardList, card : CardModel.ICard): void {
-      const index = list.cards.findIndex(cardItem => cardItem.id === card.id);
-      if (index !== -1) list.cards.splice(index, 1);
+    this.data = this.data.map(
+      (currentList) => currentList.id === list.id
+        ? {...currentList, cards: currentList.cards.filter((item) => item.id !== card.id)}
+        : currentList);
+    this.dataLists$.next(this.data);
   }
 
   public addCard(list : CardModel.ICardList, card : CardModel.ICard): void {
-    list.cards.push(card);
+    this.data = this.data.map(
+      (currentList) => currentList.id === list.id
+        ? {...currentList, cards: currentList.cards.concat(card)}
+        : currentList);
+    this.dataLists$.next(this.data);
+  }
+
+  public editCard(card : CardModel.ICard): void {
+    this.data = this.data.map(
+      (currentList) => {
+        return {...currentList, cards: currentList.cards.map(
+          (item) => item.id === card.id ? card : item
+          )}
+        });
+    this.dataLists$.next(this.data);
   }
 
 }

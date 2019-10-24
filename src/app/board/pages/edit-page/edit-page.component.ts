@@ -17,19 +17,18 @@ export class EditPageComponent implements OnInit {
   }
 
   public onEditCard(card: CardModel.ICard) {
-    this.card.id = card.id;
-    this.card.name = card.name;
-    this.card.description = card.description;
+    const cardEdit = {
+      id: card.id,
+      name: card.name,
+      description: card.description
+    };
     if (card.dueDate) {
-      this.card.dueDate = card.dueDate
-    } else if (this.card.dueDate) {
-      delete this.card.dueDate;
-    };
+      cardEdit["dueDate"] = card.dueDate
+    }
     if (card.assignee) {
-      this.card.assignee = card.assignee
-    } else if (this.card.assignee) {
-      delete this.card.assignee;
+      cardEdit["assignee"] = card.assignee
     };
+    this.dataService.editCard(cardEdit);
   }
 
 }

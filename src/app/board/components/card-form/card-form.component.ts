@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnInit } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { DataService } from "../../services/data.service";
 import { Router } from "@angular/router";
 
@@ -7,7 +7,7 @@ import { Router } from "@angular/router";
   templateUrl: "./card-form.component.html",
   styleUrls: ["./card-form.component.scss"]
 })
-export class CardFormComponent implements OnInit {
+export class CardFormComponent {
   public selectAsignee: {value: UserModel.IUser; viewValue: string}[];
   public cardId: string = `item_${(Math.random()*100).toFixed(0)}`;
   public cardName: string;
@@ -16,22 +16,22 @@ export class CardFormComponent implements OnInit {
   public cardDate: Date | string;
   @Output() public submitChanges  = new EventEmitter<CardModel.ICard>();
 
-  constructor(private dataService: DataService, private router: Router) {};
-
-  public ngOnInit() {
+  constructor(private dataService: DataService, private router: Router) {
     this.selectAsignee = this.dataService.getAsignee().reduce((prev, item) =>
       prev.concat({
         value: {...item},
         viewValue: `${item.firstName} ${item.lastName}`
       }), []);
-  }
+  };
 
   @Input() set cardData(card: CardModel.ICard) {
     if (card) {
       this.cardId = card.id;
       this.cardName = card.name;
       this.cardDescription = card.description;
-      if (card.dueDate) this.cardDate = new Date(card.dueDate);
+      if (card.dueDate) {
+        this.cardDate = new Date(card.dueDate);
+      }
       this.cardAsignee = card.assignee;
     }
   }

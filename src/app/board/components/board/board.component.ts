@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
 import { DataService } from "../../services/data.service";
 import { Router, ActivatedRoute } from "@angular/router";
+import { Observable } from 'rxjs';
 
 @Component({
   selector: "app-board",
@@ -9,7 +10,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 })
 export class BoardComponent implements OnInit {
   @Input() public searchCriterion: string;
-  public listCardList: CardModel.ICardList[];
+  public listCardList: Observable<CardModel.ICardList[]>;
 
   constructor(private dataService: DataService, private router: Router, private route: ActivatedRoute) {}
 

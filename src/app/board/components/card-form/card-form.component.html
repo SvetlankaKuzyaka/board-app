@@ -7,7 +7,7 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Asignee</mat-label>
-    <mat-select [(ngModel)]="cardAsignee" name="asigneeInput">
+    <mat-select [(ngModel)]="cardAsignee" name="asigneeInput" placeholder="Asignee">
       <mat-option *ngFor="let asignee of selectAsignee" [value]="asignee.value">
         {{ asignee.viewValue }}
       </mat-option>
